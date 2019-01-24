@@ -1,4 +1,6 @@
 # Inspiration credit to: https://medium.com/devnetwork/interacting-with-github-graphql-api-in-ruby-6a09249dd44f
+#
+# Using this as template to interact with other graphQL APIs
 
 require 'pry'
 require 'graphql/client'
@@ -23,8 +25,9 @@ module Github
   Client = GraphQL::Client.new(schema: Schema, execute: HttpAdapter)
 end
 
-require_relative 'queries'
+#Require here so everything doesn't blow up.
 
+require_relative 'queries'
 
 module Github
   class User
@@ -51,3 +54,5 @@ module Github
     end
   end
 end
+
+# Usage: user = Github::User.find('tenderlove')
